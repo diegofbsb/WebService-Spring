@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://webservice.com.br"
+	xmlns:tns="http://webservice.com.br" elementFormDefault="qualified">
+
+	<xs:element name="GetCustomerDeteilRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetCustomerDeteilResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerDatail"
+					type="tns:CustomerDatail"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetAllCustomerDetailRequest">
+		<xs:complexType>
+
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetAllCustomerDetailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerDatail"
+					type="tns:CustomerDatail" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeleteCustomerDetailRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeleteCustomerDetailResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status"
+					type="tns:Status" ></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+<xs:simpleType name="Status">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="SUCCESS"></xs:enumeration>
+		<xs:enumeration value="FAILURE"></xs:enumeration>
+	</xs:restriction>
+</xs:simpleType>
+
+	<xs:complexType name="CustomerDatail">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"></xs:element>
+			<xs:element name="name" type="xs:string"></xs:element>
+			<xs:element name="phone" type="xs:string"></xs:element>
+			<xs:element name="email" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
