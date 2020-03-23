@@ -50,23 +50,23 @@ public class WebServiceConfig extends WsConfigurerAdapter{
 	}
 
 	
-//	@Bean
-//	public XwsSecurityInterceptor securityInterceptor() {
-//		XwsSecurityInterceptor interceptor = new XwsSecurityInterceptor();
-//		interceptor.setCallbackHandler(callbackHandler());
-//		interceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
-//		return interceptor;
-//	}
-//	
-//	@Bean
-//	public SimplePasswordValidationCallbackHandler callbackHandler() {
-//		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
-//		handler.setUsersMap(Collections.singletonMap("diego","123"));
-//		return handler;
-//	}
-//	
-//	@Override
-//	public void addInterceptors(List<EndpointInterceptor> interceptors) {
-//		interceptors.add(securityInterceptor());
-//	}
+	@Bean
+	public XwsSecurityInterceptor securityInterceptor() {
+		XwsSecurityInterceptor interceptor = new XwsSecurityInterceptor();
+		interceptor.setCallbackHandler(callbackHandler());
+		interceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
+		return interceptor;
+	}
+	
+	@Bean
+	public SimplePasswordValidationCallbackHandler callbackHandler() {
+		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+		handler.setUsersMap(Collections.singletonMap("diego","123"));
+		return handler;
+	}
+	
+	@Override
+	public void addInterceptors(List<EndpointInterceptor> interceptors) {
+		interceptors.add(securityInterceptor());
+	}
 }
